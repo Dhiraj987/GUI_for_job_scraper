@@ -2,26 +2,17 @@ import tkinter as tk
 import tkinter.font as fnt
 from tkinter import END
 from scrapers import linkedIn_scraper
-from tkinter.scrolledtext import ScrolledText
-import time
 
 
 
-def get_jobs(job, loc):
-    lower_label.insert(END, '\tParsing jobs\n\n')
-    main_url = linkedIn_scraper.get_exact_link(job, loc)
-    lower_label.insert(END, 'The website being parsed is ' + str(main_url)+ '\n')
-    lower_label.insert(END, '\nGetting links from the website')
-    links = linkedIn_scraper.get_links(main_url)
-    lower_label.insert(END,'\ndone')
-
-HEIGHT = 500
-WIDTH = 800
+def get_jobs( job, loc):
+    lower_label.config(text = "Parsing Jobs")
+    linkedIn_scraper.run(job, loc)
 
 root = tk.Tk()
 root.title("Job Parsing Portal")
 
-canvas = tk.Canvas(root, height = HEIGHT, width= WIDTH)
+canvas = tk.Canvas(root, height = 500, width= 800)
 canvas.pack()
 
 background_image = tk.PhotoImage(file='bg-image.png')
@@ -46,7 +37,8 @@ button.place(relx = 0.7, rely = 0.25, relheight=0.45, relwidth = 0.27)
 lower_frame = tk.Frame(root, bg = '#b0d9b3', bd = 10)
 lower_frame.place(relx = 0.5, rely = 0.55, relheight=0.35, relwidth= 0.75, anchor='n')
 
-lower_label = ScrolledText(lower_frame, bg = '#fcffeb', wrap=tk.CHAR, font = fnt.Font(size = 17))
+lower_label = tk.Label(lower_frame, bg = '#fcffeb', font = fnt.Font(size = 17), justify="center")
 lower_label.place(relx = 0.5, rely = 0.02, relwidth= 0.95, relheight= 0.95, anchor ='n')
+
 
 root.mainloop()
