@@ -9,3 +9,4 @@ Some screenshots of the GUI
 
 ![Screen Shot 2021-06-27 at 9 09 56 PM](https://user-images.githubusercontent.com/54525683/136719308-3e8e505c-d0ff-4541-9059-cbdf4af64163.png)
 
+more details and implementations at https://github.com/Dhiraj987/job_postings
